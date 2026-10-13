@@ -123,13 +123,16 @@ st.markdown("""<style>
 [data-testid="stSidebar"] div[role="radiogroup"] > label p{font-size:1.75rem !important;font-weight:900 !important;letter-spacing:.06em;text-transform:uppercase;text-shadow:0 2px 6px rgba(0,0,0,.45);}
 [data-testid="stSidebar"] h3{font-size:1.5rem !important;font-weight:900 !important;text-align:center;}
 </style>""", unsafe_allow_html=True)
-_MENU = {"ℹ️\nAbout": "About", "🎬\nVideo": "Video", "🎙️\nAudio": "Audio", "🖼️\nGallery": "Gallery"}
+_MENU = {"ℹ️\nAbout": "About", "🎬\nVideo": "Video", "🎙️\nAudio": "Audio", "🖼️\nGallery": "Gallery", "🔴\nLive": "Live"}
 with st.sidebar:
     st.markdown("### 🛡️ SentryDeepfake")
     _pick = st.radio("Menu", list(_MENU), label_visibility="collapsed")
 mode = _MENU[_pick]
 
-if mode == "About":
+if mode == "Live":
+    from sentrydeepfake.ui.live import show_live
+    show_live()
+elif mode == "About":
     show_about()
 elif mode == "Gallery":
     show_video_examples()
