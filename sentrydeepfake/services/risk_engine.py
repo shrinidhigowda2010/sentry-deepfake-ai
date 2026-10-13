@@ -189,6 +189,18 @@ def assess_risk(
             "Evidence is insufficient because no primary media authenticity detector "
             "completed successfully."
         )
+    elif any(
+        sc is not None and sc >= 0.85
+        for sc in (
+            getattr(video, "max_fake_score", None) if getattr(video, "status", "") == "success" else None,
+            getattr(audio, "spoof_score", None) if getattr(audio, "status", "") == "success" else None,
+        )
+    ):
+        category = "SUSPICIOUS"
+        summary = (
+            "At least one detector reported a strong AI-generation signal. "
+            "Treat this media as likely manipulated and verify through another channel."
+        )
     elif suspicious_votes > 0 and lower_votes > 0 and suspicious_votes == lower_votes:
         category = "INCONCLUSIVE"
         summary = (

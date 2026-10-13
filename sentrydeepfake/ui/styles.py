@@ -80,6 +80,16 @@ div[data-testid="stFileUploader"] * { color: var(--text) !important; }
 
 [data-testid="stSidebar"] { background: #E2E8F0 !important; border-right: 1px solid var(--border); }
 [data-testid="stSidebar"] * { color: var(--text) !important; }
+section[data-testid="stSidebar"] div[role="radiogroup"] label,
+section[data-testid="stSidebar"] div[role="radiogroup"] label *,
+section[data-testid="stSidebar"] div[role="radiogroup"] label p,
+section[data-testid="stSidebar"] div[role="radiogroup"] label div[data-testid="stMarkdownContainer"] p {
+  font-size: 2.1rem !important; font-weight: 900 !important; line-height: 1.35 !important;
+  letter-spacing: .05em !important; text-transform: uppercase !important;
+  color: #FFFFFF !important; text-shadow: 0 3px 8px rgba(0,0,0,.55) !important;
+}
+section[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked) * { color: #0F172A !important; text-shadow: none !important; }
+section[data-testid="stSidebar"] { min-width: 260px !important; max-width: 260px !important; }
 """
 
 
